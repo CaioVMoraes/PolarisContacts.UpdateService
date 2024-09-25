@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using PolarisContacts.Application.Interfaces.Services;
-using PolarisContacts.Application.Services;
+using PolarisContacts.UpdateService.Application.Interfaces.Services;
 
 namespace PolarisContacts.UpdateService.Controllers
 {
@@ -11,12 +10,12 @@ namespace PolarisContacts.UpdateService.Controllers
         private readonly ILogger<UsuarioController> _logger = logger;
         private readonly IUsuarioService _usuarioService = usuarioService;
 
-        [HttpPost]
-        public async Task<bool> Post()
+        [HttpPut("ChangeUserPasswordAsync")]
+        public bool ChangeUserPasswordAsync(string login, string oldPassword, string newPassword)
         {
             try
             {
-                await _usuarioService.CreateUserAsync("login", "senha");
+                _usuarioService.ChangeUserPasswordAsync(login, oldPassword, newPassword);
             }
             catch (Exception ex)
             {

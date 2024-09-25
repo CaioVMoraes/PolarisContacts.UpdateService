@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using PolarisContacts.Application.Interfaces.Services;
-using PolarisContacts.Application.Services;
+using PolarisContacts.UpdateService.Application.Interfaces.Services;
+using PolarisContacts.Domain;
 
 namespace PolarisContacts.UpdateService.Controllers
 {
@@ -11,12 +11,28 @@ namespace PolarisContacts.UpdateService.Controllers
         private readonly ILogger<EmailController> _logger = logger;
         private readonly IEmailService _emailService = emailService;
 
-        [HttpPost]
-        public bool Post()
+        [HttpPut("UpdateEmail")]
+        public bool UpdateEmail(Email email)
         {
             try
             {
-                _emailService.AddEmail(new Domain.Email());
+                _emailService.UpdateEmail(email);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            return true;
+        }
+
+        [HttpPut("InativaEmail/{id}")]
+        public bool InativaEmail(int id)
+        {
+            try
+            {
+                _emailService.InativaEmail(id);
             }
             catch (Exception ex)
             {

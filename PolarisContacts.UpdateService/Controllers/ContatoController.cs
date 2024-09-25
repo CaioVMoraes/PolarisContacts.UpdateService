@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using PolarisContacts.Application.Interfaces.Services;
-using PolarisContacts.Application.Services;
+using PolarisContacts.UpdateService.Application.Interfaces.Services;
+using PolarisContacts.Domain;
 
 namespace PolarisContacts.UpdateService.Controllers
 {
@@ -11,12 +11,28 @@ namespace PolarisContacts.UpdateService.Controllers
         private readonly ILogger<ContatoController> _logger = logger;
         private readonly IContatoService _contatoService = contatoService;
 
-        [HttpPost]
-        public bool Post()
+        [HttpPut("UpdateContato")]
+        public bool UpdateContato(Contato contato)
         {
             try
             {
-                _contatoService.AddContato(new Domain.Contato());
+                _contatoService.UpdateContato(contato);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            return true;
+        }
+
+        [HttpPut("InativaContato/{id}")]
+        public bool InativaContato(int id)
+        {
+            try
+            {
+                _contatoService.InativaContato(id);
             }
             catch (Exception ex)
             {

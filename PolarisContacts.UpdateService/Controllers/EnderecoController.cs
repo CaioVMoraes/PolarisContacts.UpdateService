@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using PolarisContacts.Application.Interfaces.Services;
-using PolarisContacts.Application.Services;
+using PolarisContacts.UpdateService.Application.Interfaces.Services;
+using PolarisContacts.Domain;
 
 namespace PolarisContacts.UpdateService.Controllers
 {
@@ -11,12 +11,28 @@ namespace PolarisContacts.UpdateService.Controllers
         private readonly ILogger<EnderecoController> _logger = logger;
         private readonly IEnderecoService _enderecoService = enderecoService;
 
-        [HttpPost]
-        public bool Post()
+        [HttpPut("UpdateEndereco")]
+        public bool UpdateEndereco(Endereco endereco)
         {
             try
             {
-                _enderecoService.AddEndereco(new Domain.Endereco());
+                _enderecoService.UpdateEndereco(endereco);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            return true;
+        }
+
+        [HttpPut("InativaEndereco/{id}")]
+        public bool InativaEndereco(int id)
+        {
+            try
+            {
+                _enderecoService.InativaEndereco(id);
             }
             catch (Exception ex)
             {
