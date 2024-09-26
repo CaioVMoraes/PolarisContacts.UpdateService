@@ -1,7 +1,7 @@
 ﻿using PolarisContacts.UpdateService.Application.Interfaces.Repositories;
 using PolarisContacts.UpdateService.Application.Interfaces.Services;
 using System.Threading.Tasks;
-using static PolarisContacts.CrossCutting.Helpers.Exceptions.CustomExceptions;
+using static PolarisContacts.UpdateService.Helpers.Exceptions.CustomExceptions;
 
 namespace PolarisContacts.UpdateService.Application.Services
 {
@@ -9,7 +9,7 @@ namespace PolarisContacts.UpdateService.Application.Services
     {
         private readonly IUsuarioRepository _usuarioRepository = usuarioRepository;
 
-        public async Task<bool> ChangeUserPasswordAsync(string login, string oldPassword, string newPassword)
+        public async Task ValidaChangeUserPassword(string login, string oldPassword, string newPassword)
         {
             if (string.IsNullOrEmpty(login))
             {
@@ -28,8 +28,6 @@ namespace PolarisContacts.UpdateService.Application.Services
             {
                 throw new SenhaIncorretaException();
             }
-
-            return await _usuarioRepository.ChangeUserPasswordAsync(login, oldPassword, newPassword);
         }
     }
 }

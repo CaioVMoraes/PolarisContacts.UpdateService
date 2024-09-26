@@ -1,34 +1,32 @@
-﻿using PolarisContacts.UpdateService.Application.Interfaces.Repositories;
-using PolarisContacts.UpdateService.Application.Interfaces.Services;
-using PolarisContacts.Domain;
+﻿using PolarisContacts.UpdateService.Application.Interfaces.Services;
+using PolarisContacts.UpdateService.Domain;
+using PolarisContacts.UpdateService.Helpers;
 using System;
-using System.Threading.Tasks;
-using static PolarisContacts.CrossCutting.Helpers.Exceptions.CustomExceptions;
+using static PolarisContacts.UpdateService.Helpers.Exceptions.CustomExceptions;
 
 namespace PolarisContacts.UpdateService.Application.Services
 {
-    public class EnderecoService(IEnderecoRepository enderecoRepository) : IEnderecoService
+    public class EnderecoService : IEnderecoService
     {
-        private readonly IEnderecoRepository _enderecoRepository = enderecoRepository;
-
-        public async Task UpdateEndereco(Endereco endereco)
+        public void ValidaEndereco(Endereco endereco)
         {
             if (endereco == null || endereco.Id <= 0)
             {
                 throw new ArgumentNullException(nameof(endereco));
             }
 
-            await _enderecoRepository.UpdateEndereco(endereco);
+            if (!Validacoes.IsValidEndereco(endereco))
+            {
+                throw new EnderecoInvalidoException();
+            }
         }
 
-        public async Task InativaEndereco(int id)
+        public void ValidaInativarEndereco(int id)
         {
             if (id <= 0)
             {
                 throw new InvalidIdException();
             }
-
-            await _enderecoRepository.InativaEndereco(id);
         }
     }
 }

@@ -1,11 +1,10 @@
-﻿using PolarisContacts.Domain;
-using System.Threading.Tasks;
+﻿using PolarisContacts.UpdateService.Domain;
 
 namespace PolarisContacts.UpdateService.Application.Interfaces.Services
 {
     public interface IEnderecoService
     {
-        Task UpdateEndereco(Endereco endereco);
-        Task InativaEndereco(int id);
+        void ValidaEndereco(Endereco endereco);
+        void ValidaInativarEndereco(int id);
     }
 }

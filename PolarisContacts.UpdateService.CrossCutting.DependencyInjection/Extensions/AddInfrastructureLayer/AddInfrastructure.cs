@@ -1,23 +1,17 @@
 using Microsoft.Extensions.DependencyInjection;
-using PolarisContacts.UpdateService.Application.Interfaces.Repositories;
-using PolarisContacts.Domain.Settings;
-using PolarisContacts.UpdateService.Infrastructure.Repositories;
+using PolarisContacts.UpdateService.Application.Interfaces.Messaging;
+using PolarisContacts.UpdateService.Domain.Settings;
+using PolarisContacts.UpdateService.Infrastructure.Messaging;
 
 namespace PolarisContacts.UpdateService.CrossCutting.DependencyInjection.Extensions.AddInfrastructureLayer;
 
 public static partial class AddInfrastructureLayerExtensions
 {
     public static IServiceCollection AddSettings(this IServiceCollection services) =>
-        services.AddBindedSettings<DbSettings>();
+        services.AddBindedSettings<RabbitMqSettings>();
 
     public static IServiceCollection AddRepositories(this IServiceCollection services) =>
-        services.AddTransient<IUsuarioRepository, UsuarioRepository>()
-                .AddTransient<IContatoRepository, ContatoRepository>()
-                .AddTransient<ITelefoneRepository, TelefoneRepository>()
-                .AddTransient<ICelularRepository, CelularRepository>()
-                .AddTransient<IEmailRepository, EmailRepository>()
-                .AddTransient<IEnderecoRepository, EnderecoRepository>()
-                .AddTransient<PolarisContacts.DatabaseConnection.IDatabaseConnection, PolarisContacts.DatabaseConnection.DatabaseConnection>();
+        services.AddTransient<IRabbitMqProducer, RabbitMqProducer>();
 
     public static IServiceCollection AddInfrastructure(this IServiceCollection services) =>
         services

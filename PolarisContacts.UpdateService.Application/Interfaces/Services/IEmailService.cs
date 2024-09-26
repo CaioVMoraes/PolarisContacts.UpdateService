@@ -1,11 +1,10 @@
-﻿using PolarisContacts.Domain;
-using System.Threading.Tasks;
+﻿using PolarisContacts.UpdateService.Domain;
 
 namespace PolarisContacts.UpdateService.Application.Interfaces.Services
 {
     public interface IEmailService
     {
-        Task UpdateEmail(Email email);
-        Task InativaEmail(int id);
+        void ValidaEmail(Email email);
+        void ValidaInativarEmail(int id);
     }
 }

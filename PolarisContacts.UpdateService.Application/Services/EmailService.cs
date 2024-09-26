@@ -1,34 +1,32 @@
-﻿using PolarisContacts.UpdateService.Application.Interfaces.Repositories;
-using PolarisContacts.UpdateService.Application.Interfaces.Services;
-using PolarisContacts.Domain;
+﻿using PolarisContacts.UpdateService.Application.Interfaces.Services;
+using PolarisContacts.UpdateService.Domain;
+using PolarisContacts.UpdateService.Helpers;
 using System;
-using System.Threading.Tasks;
-using static PolarisContacts.CrossCutting.Helpers.Exceptions.CustomExceptions;
+using static PolarisContacts.UpdateService.Helpers.Exceptions.CustomExceptions;
 
 namespace PolarisContacts.UpdateService.Application.Services
 {
-    public class EmailService(IEmailRepository emailRepository) : IEmailService
+    public class EmailService : IEmailService
     {
-        private readonly IEmailRepository _emailRepository = emailRepository;
-
-        public async Task UpdateEmail(Email email)
+        public void ValidaEmail(Email email)
         {
             if (email == null || email.Id <= 0)
             {
                 throw new ArgumentNullException(nameof(email));
             }
 
-            await _emailRepository.UpdateEmail(email);
+            if (!Validacoes.IsValidEmail(email.EnderecoEmail))
+            {
+                throw new EmailInvalidoException();
+            }
         }
 
-        public async Task InativaEmail(int id)
+        public void ValidaInativarEmail(int id)
         {
             if (id <= 0)
             {
                 throw new InvalidIdException();
             }
-
-            await _emailRepository.InativaEmail(id);
         }
     }
 }

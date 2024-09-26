@@ -1,28 +1,29 @@
-﻿using PolarisContacts.UpdateService.Application.Interfaces.Repositories;
-using PolarisContacts.UpdateService.Application.Interfaces.Services;
-using PolarisContacts.Domain;
-using System.Threading.Tasks;
-using static PolarisContacts.CrossCutting.Helpers.Exceptions.CustomExceptions;
+﻿using PolarisContacts.UpdateService.Application.Interfaces.Services;
+using PolarisContacts.UpdateService.Domain;
+using static PolarisContacts.UpdateService.Helpers.Exceptions.CustomExceptions;
 
 namespace PolarisContacts.UpdateService.Application.Services
 {
-    public class ContatoService(IContatoRepository contatoRepository) : IContatoService
+    public class ContatoService : IContatoService
     {
-        private readonly IContatoRepository _contatoRepository = contatoRepository;
-
-        public async Task<bool> UpdateContato(Contato contato)
+        public void ValidaContato(Contato contato)
         {
-            return await _contatoRepository.UpdateContato(contato);
+            if (contato.Id <= 0)
+            {
+                throw new InvalidIdException();
+            }
+            if (string.IsNullOrEmpty(contato.Nome))
+            {
+                throw new NomeObrigatorioException();
+            }
         }
 
-        public async Task<bool> InativaContato(int id)
+        public void ValidaInativarContato(int id)
         {
             if (id <= 0)
             {
                 throw new InvalidIdException();
             }
-
-            return await _contatoRepository.InativaContato(id);
         }
     }
 }

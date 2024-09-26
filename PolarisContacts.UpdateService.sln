@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolarisContacts.UpdateServi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolarisContacts.UpdateService.CrossCutting.DependencyInjection", "PolarisContacts.UpdateService.CrossCutting.DependencyInjection\PolarisContacts.UpdateService.CrossCutting.DependencyInjection.csproj", "{1AC1A3E2-9750-4AB0-89DF-05EFD4DFC093}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolarisContacts.UpdateService.Domain", "PolarisContacts.UpdateService.Domain\PolarisContacts.UpdateService.Domain.csproj", "{6C9E8B52-5A69-4BA5-9206-96942912CA11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolarisContacts.UpdateService.Helpers", "PolarisContacts.UpdateService.Helpers\PolarisContacts.UpdateService.Helpers.csproj", "{A692E172-CE12-411D-9CCD-94B38A311B7A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{1AC1A3E2-9750-4AB0-89DF-05EFD4DFC093}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AC1A3E2-9750-4AB0-89DF-05EFD4DFC093}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AC1A3E2-9750-4AB0-89DF-05EFD4DFC093}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C9E8B52-5A69-4BA5-9206-96942912CA11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C9E8B52-5A69-4BA5-9206-96942912CA11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C9E8B52-5A69-4BA5-9206-96942912CA11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C9E8B52-5A69-4BA5-9206-96942912CA11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A692E172-CE12-411D-9CCD-94B38A311B7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A692E172-CE12-411D-9CCD-94B38A311B7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A692E172-CE12-411D-9CCD-94B38A311B7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A692E172-CE12-411D-9CCD-94B38A311B7A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,11 +1,10 @@
-﻿using PolarisContacts.Domain;
-using System.Threading.Tasks;
+﻿using PolarisContacts.UpdateService.Domain;
 
 namespace PolarisContacts.UpdateService.Application.Interfaces.Services
 {
     public interface ITelefoneService
     {
-        Task UpdateTelefone(Telefone telefone);
-        Task InativaTelefone(int id);
+        void ValidaTelefone(Telefone telefone);
+        void ValidaInativarTelefone(int id);
     }
 }

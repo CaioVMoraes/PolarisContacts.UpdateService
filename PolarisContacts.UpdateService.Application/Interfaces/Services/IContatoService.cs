@@ -1,11 +1,10 @@
-﻿using PolarisContacts.Domain;
-using System.Threading.Tasks;
+﻿using PolarisContacts.UpdateService.Domain;
 
 namespace PolarisContacts.UpdateService.Application.Interfaces.Services
 {
     public interface IContatoService
     {
-        Task<bool> UpdateContato(Contato contato);
-        Task<bool> InativaContato(int id);
+        void ValidaContato(Contato contato);
+        void ValidaInativarContato(int id);
     }
 }

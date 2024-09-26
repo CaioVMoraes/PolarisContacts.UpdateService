@@ -5,9 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="PolarisContacts.Domain" Version="1.0.0" />
-    <PackageReference Include="PolarisContacts.Helpers" Version="1.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PolarisContacts.UpdateService.Helpers\PolarisContacts.UpdateService.Helpers.csproj" />
   </ItemGroup>
 
 </Project>

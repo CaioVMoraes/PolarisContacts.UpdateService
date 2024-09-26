@@ -1,41 +1,31 @@
-﻿using PolarisContacts.UpdateService.Application.Interfaces.Repositories;
-using PolarisContacts.UpdateService.Application.Interfaces.Services;
-using PolarisContacts.Domain;
-using System;
-using System.Threading.Tasks;
-using static PolarisContacts.CrossCutting.Helpers.Exceptions.CustomExceptions;
+﻿using PolarisContacts.UpdateService.Application.Interfaces.Services;
+using PolarisContacts.UpdateService.Domain;
+using PolarisContacts.UpdateService.Helpers;
+using static PolarisContacts.UpdateService.Helpers.Exceptions.CustomExceptions;
 
 namespace PolarisContacts.UpdateService.Application.Services
 {
-    public class CelularService(ICelularRepository celularRepository) : ICelularService
+    public class CelularService : ICelularService
     {
-        private readonly ICelularRepository _celularRepository = celularRepository;
-
-        public async Task UpdateCelular(Celular celular)
+        public void ValidaCelular(Celular celular)
         {
-            if (celular == null || celular.Id <= 0)
+            if (celular.Id <= 0)
             {
-                throw new ArgumentNullException(nameof(celular));
+                throw new InvalidIdException();
             }
 
-            await _celularRepository.UpdateCelular(celular);
+            if (!Validacoes.IsValidCelular(celular.NumeroCelular))
+            {
+                throw new CelularInvalidoException();
+            }
         }
 
-        public async Task InativaCelular(int id)
+        public void ValidaInativarCelular(int id)
         {
             if (id <= 0)
             {
                 throw new InvalidIdException();
             }
-
-            var existingCelular = await _celularRepository.GetCelularById(id);
-
-            if (existingCelular == null)
-            {
-                throw new CelularNotFoundException();
-            }
-
-            await _celularRepository.InativaCelular(id);
         }
     }
 }
