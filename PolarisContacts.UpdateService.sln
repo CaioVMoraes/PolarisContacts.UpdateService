@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolarisContacts.UpdateServi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolarisContacts.UpdateService.UnitTests", "PolarisContacts.UpdateService.UnitTests\PolarisContacts.UpdateService.UnitTests.csproj", "{C7BDFCF5-59A9-4545-A2DB-E9095832559A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolarisContacts.UpdateService.IntegrationTests", "PolarisContacts.UpdateService.IntegrationTests\PolarisContacts.UpdateService.IntegrationTests.csproj", "{DD2F9EEF-DECB-4E16-AB64-2E11E3B2F4E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{C7BDFCF5-59A9-4545-A2DB-E9095832559A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7BDFCF5-59A9-4545-A2DB-E9095832559A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7BDFCF5-59A9-4545-A2DB-E9095832559A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD2F9EEF-DECB-4E16-AB64-2E11E3B2F4E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD2F9EEF-DECB-4E16-AB64-2E11E3B2F4E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD2F9EEF-DECB-4E16-AB64-2E11E3B2F4E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD2F9EEF-DECB-4E16-AB64-2E11E3B2F4E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +80,7 @@ Global
 		{A692E172-CE12-411D-9CCD-94B38A311B7A} = {D33AF815-4B18-46B7-8F1C-86CE1DA495FA}
 		{41417F76-3BE8-4B4F-B690-E57537C2C645} = {3DAC7EEA-2F97-425E-B2EE-9DB9AD9B63A3}
 		{C7BDFCF5-59A9-4545-A2DB-E9095832559A} = {3DAC7EEA-2F97-425E-B2EE-9DB9AD9B63A3}
+		{DD2F9EEF-DECB-4E16-AB64-2E11E3B2F4E5} = {3DAC7EEA-2F97-425E-B2EE-9DB9AD9B63A3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8B339194-DF7D-4B7B-A4E6-62ED5533C9F1}
