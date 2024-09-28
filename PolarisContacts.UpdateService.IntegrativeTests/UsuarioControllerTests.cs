@@ -1,30 +1,34 @@
-﻿public class UsuarioControllerTests : IClassFixture<IntegrationTestFixture>
+﻿
+namespace PolarisContacts.UpdateService.IntegrativeTests
 {
-    private readonly HttpClient _client;
-    private readonly IntegrationTestFixture _fixture;
-
-    public UsuarioControllerTests(IntegrationTestFixture fixture)
+    public class UsuarioControllerTests : IClassFixture<IntegrationTestFixture>
     {
-        _fixture = fixture;
-        _client = fixture.Client;
-    }
+        private readonly HttpClient _client;
+        private readonly IntegrationTestFixture _fixture;
 
-    [Fact]
-    public async Task ChangePassword_ReturnSuccess()
-    {
-        // Define os dados de teste
-        string login = "Login Teste";
-        string oldPassword = "1";
-        string newPassword = "newPassword";
+        public UsuarioControllerTests(IntegrationTestFixture fixture)
+        {
+            _fixture = fixture;
+            _client = fixture.Client;
+        }
 
-        // Cria a URL com os parâmetros na query string
-        var requestUrl = $"Usuario/ChangeUserPasswordAsync?login={login}&oldPassword={oldPassword}&newPassword={newPassword}";
+        [Fact]
+        public async Task ChangePassword_ReturnSuccess()
+        {
+            // Define os dados de teste
+            string login = "Login Teste";
+            string oldPassword = "1";
+            string newPassword = "newPassword";
 
-        var response = await _client.PutAsync(requestUrl, null);
-        var responseContent = await response.Content.ReadAsStringAsync();
+            // Cria a URL com os parâmetros na query string
+            var requestUrl = $"Usuario/ChangeUserPasswordAsync?login={login}&oldPassword={oldPassword}&newPassword={newPassword}";
 
-        // Verifica se a resposta é bem-sucedida
-        Assert.True(response.IsSuccessStatusCode);
-        Assert.Equal("Mensagem publicada com sucesso.", responseContent);
+            var response = await _client.PutAsync(requestUrl, null);
+            var responseContent = await response.Content.ReadAsStringAsync();
+
+            // Verifica se a resposta é bem-sucedida
+            Assert.True(response.IsSuccessStatusCode);
+            Assert.Equal("Mensagem publicada com sucesso.", responseContent);
+        }
     }
 }

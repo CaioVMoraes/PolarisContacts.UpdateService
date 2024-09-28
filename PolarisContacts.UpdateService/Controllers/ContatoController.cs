@@ -66,7 +66,7 @@ namespace PolarisContacts.UpdateService.Controllers
                 // Publica a mensagem no RabbitMQ
                 _rabbitMqProducer.Publish(message);
 
-                return Ok("Contato deletado com sucesso.");
+                return Ok("Mensagem publicada com sucesso.");
             }
             catch (Exception ex)
             {
