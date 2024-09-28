@@ -1,17 +1,39 @@
+using PolarisContacts.UpdateService.CrossCutting.DependencyInjection;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Configuração de ambiente
+builder.Host.ConfigureAppConfiguration((context, config) =>
+{
+    var env = context.HostingEnvironment;
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+    config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+          .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
+});
+
+// Adiciona serviços ao container
+builder.Services.RegisterServices();
+
+// Adiciona suporte para controladores e filtros de autenticação
+builder.Services.AddControllers(options =>
+{
+    // Adiciona o filtro globalmente, exceto em ambientes de teste
+    //if (!builder.Environment.IsEnvironment("Test"))
+    //{
+    //    options.Filters.Add(new AuthenticationFilterAttribute());
+    //}
+});
+
+// Swagger para documentação
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configuração do pipeline de requisição HTTP
 if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
@@ -20,6 +42,9 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+// Mapeia os controladores
 app.MapControllers();
 
 app.Run();
+
+public partial class Program { }

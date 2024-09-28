@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PolarisContacts.UpdateService.Application\PolarisContacts.UpdateService.Application.csproj" />
+    <ProjectReference Include="..\PolarisContacts.UpdateService.CrossCutting.DependencyInjection\PolarisContacts.UpdateService.CrossCutting.DependencyInjection.csproj" />
   </ItemGroup>
 
 </Project>

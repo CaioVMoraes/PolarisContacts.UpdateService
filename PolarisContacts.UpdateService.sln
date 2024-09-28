@@ -13,7 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolarisContacts.UpdateServi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolarisContacts.UpdateService.Domain", "PolarisContacts.UpdateService.Domain\PolarisContacts.UpdateService.Domain.csproj", "{6C9E8B52-5A69-4BA5-9206-96942912CA11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolarisContacts.UpdateService.Helpers", "PolarisContacts.UpdateService.Helpers\PolarisContacts.UpdateService.Helpers.csproj", "{A692E172-CE12-411D-9CCD-94B38A311B7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolarisContacts.UpdateService.Helpers", "PolarisContacts.UpdateService.Helpers\PolarisContacts.UpdateService.Helpers.csproj", "{A692E172-CE12-411D-9CCD-94B38A311B7A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D33AF815-4B18-46B7-8F1C-86CE1DA495FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{3DAC7EEA-2F97-425E-B2EE-9DB9AD9B63A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolarisContacts.UpdateService.IntegrativeTests", "PolarisContacts.UpdateService.IntegrativeTests\PolarisContacts.UpdateService.IntegrativeTests.csproj", "{41417F76-3BE8-4B4F-B690-E57537C2C645}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,9 +51,22 @@ Global
 		{A692E172-CE12-411D-9CCD-94B38A311B7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A692E172-CE12-411D-9CCD-94B38A311B7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A692E172-CE12-411D-9CCD-94B38A311B7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41417F76-3BE8-4B4F-B690-E57537C2C645}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41417F76-3BE8-4B4F-B690-E57537C2C645}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41417F76-3BE8-4B4F-B690-E57537C2C645}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41417F76-3BE8-4B4F-B690-E57537C2C645}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{952E9147-A828-4AC6-8D39-FBF6E5A24EE2} = {D33AF815-4B18-46B7-8F1C-86CE1DA495FA}
+		{426BFD92-C5A6-4D48-86B3-62BDFDB3CF93} = {D33AF815-4B18-46B7-8F1C-86CE1DA495FA}
+		{410371B6-5B19-4190-9DE4-4D78F179D27B} = {D33AF815-4B18-46B7-8F1C-86CE1DA495FA}
+		{1AC1A3E2-9750-4AB0-89DF-05EFD4DFC093} = {D33AF815-4B18-46B7-8F1C-86CE1DA495FA}
+		{6C9E8B52-5A69-4BA5-9206-96942912CA11} = {D33AF815-4B18-46B7-8F1C-86CE1DA495FA}
+		{A692E172-CE12-411D-9CCD-94B38A311B7A} = {D33AF815-4B18-46B7-8F1C-86CE1DA495FA}
+		{41417F76-3BE8-4B4F-B690-E57537C2C645} = {3DAC7EEA-2F97-425E-B2EE-9DB9AD9B63A3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8B339194-DF7D-4B7B-A4E6-62ED5533C9F1}
