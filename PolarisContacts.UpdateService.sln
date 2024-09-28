@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D33AF815-4B1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{3DAC7EEA-2F97-425E-B2EE-9DB9AD9B63A3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolarisContacts.UpdateService.IntegrativeTests", "PolarisContacts.UpdateService.IntegrativeTests\PolarisContacts.UpdateService.IntegrativeTests.csproj", "{41417F76-3BE8-4B4F-B690-E57537C2C645}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolarisContacts.UpdateService.IntegrationTests", "PolarisContacts.UpdateService.IntegrativeTests\PolarisContacts.UpdateService.IntegrationTests.csproj", "{41417F76-3BE8-4B4F-B690-E57537C2C645}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolarisContacts.UpdateService.UnitTests", "PolarisContacts.UpdateService.UnitTests\PolarisContacts.UpdateService.UnitTests.csproj", "{C7BDFCF5-59A9-4545-A2DB-E9095832559A}"
 EndProject

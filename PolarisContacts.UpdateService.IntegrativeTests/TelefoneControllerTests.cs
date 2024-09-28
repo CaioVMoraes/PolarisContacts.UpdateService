@@ -2,7 +2,7 @@
 using PolarisContacts.UpdateService.Domain;
 using System.Text;
 
-namespace PolarisContacts.UpdateService.IntegrativeTests
+namespace PolarisContacts.UpdateService.IntegrationTests
 {
     public class TelefoneControllerTests : IClassFixture<IntegrationTestFixture>
     {

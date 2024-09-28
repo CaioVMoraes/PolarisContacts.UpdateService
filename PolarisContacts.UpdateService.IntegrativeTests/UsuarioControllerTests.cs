@@ -1,5 +1,5 @@
 ﻿
-namespace PolarisContacts.UpdateService.IntegrativeTests
+namespace PolarisContacts.UpdateService.IntegrationTests
 {
     public class UsuarioControllerTests : IClassFixture<IntegrationTestFixture>
     {
