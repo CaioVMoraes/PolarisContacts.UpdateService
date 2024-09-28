@@ -40,11 +40,13 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
 
+    - name: Run Integration Tests
+      run: dotnet test PolarisContacts.UpdateService.IntegrationTests/PolarisContacts.UpdateService.IntegrationTests.csproj --configuration Release --no-restore --logger "trx;LogFileName=IntegrationTestResults/IntegrationTestResults.trx" --collect:"XPlat Code Coverage"
+
     - name: Run Unit Tests
       run: dotnet test PolarisContacts.UpdateService.UnitTests/PolarisContacts.UpdateService.UnitTests.csproj --configuration Release --no-restore --logger "trx;LogFileName=IntegrationTestResults/IntegrationTestResults.trx" --collect:"XPlat Code Coverage"
 
-    - name: Run Integration Tests
-      run: dotnet test PolarisContacts.UpdateService.IntegrationTests/PolarisContacts.UpdateService.IntegrationTests.csproj --configuration Release --no-restore --logger "trx;LogFileName=IntegrationTestResults/IntegrationTestResults.trx" --collect:"XPlat Code Coverage"
+    
 
 
 
