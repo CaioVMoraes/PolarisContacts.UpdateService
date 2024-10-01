@@ -16,17 +16,17 @@ namespace PolarisContacts.UpdateService.Controllers
         private readonly IRabbitMqProducer _rabbitMqProducer = rabbitMqProducer;
 
         [HttpPut("ChangeUserPasswordAsync")]
-        public IActionResult ChangeUserPasswordAsync(string login, string oldPassword, string newPassword)
+        public IActionResult ChangeUserPasswordAsync(Usuario usuario)
         {
             try
             {
-                _usuarioService.ValidaChangeUserPassword(login, oldPassword, newPassword);
+                _usuarioService.ValidaChangeUserPassword(usuario.Login, usuario.Senha, usuario.NovaSenha);
 
                 var entityMessage = new EntityMessage
                 {
                     Operation = OperationType.Update,
                     EntityType = EntityType.Usuario,
-                    EntityData = new Usuario { Login = login, Senha = oldPassword, NovaSenha = newPassword }
+                    EntityData = usuario
                 };
 
                 // Serializa o objeto contato para JSON
