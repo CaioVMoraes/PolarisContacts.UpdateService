@@ -1,4 +1,8 @@
 ﻿
+using Newtonsoft.Json;
+using PolarisContacts.UpdateService.Domain;
+using System.Text;
+
 namespace PolarisContacts.UpdateService.IntegrationTests
 {
     public class UsuarioControllerTests : IClassFixture<IntegrationTestFixture>
@@ -16,19 +20,25 @@ namespace PolarisContacts.UpdateService.IntegrationTests
         public async Task ChangePassword_ReturnSuccess()
         {
             // Define os dados de teste
-            string login = "Login Teste";
-            string oldPassword = "1";
-            string newPassword = "newPassword";
+            var usuario = new Usuario
+            {
+                Login = "Login Teste",
+                Senha = "102030",
+                NovaSenha = "123456",
+                Ativo = true
+            };            
 
-            // Cria a URL com os parâmetros na query string
-            var requestUrl = $"Usuario/ChangeUserPasswordAsync?login={login}&oldPassword={oldPassword}&newPassword={newPassword}";
+            // Serializa o objeto Usuario para JSON
+            var jsonContent = new StringContent(JsonConvert.SerializeObject(usuario), Encoding.UTF8, "application/json");
 
-            var response = await _client.PutAsync(requestUrl, null);
+            // Faz a requisição para criar o usuário via POST
+            var response = await _client.PutAsync("Usuario/ChangeUserPasswordAsync", jsonContent);
+
             var responseContent = await response.Content.ReadAsStringAsync();
 
             // Verifica se a resposta é bem-sucedida
             Assert.True(response.IsSuccessStatusCode);
             Assert.Equal("Mensagem publicada com sucesso.", responseContent);
-        }
+        }      
     }
 }
