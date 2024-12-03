@@ -34,7 +34,7 @@ namespace PolarisContacts.UpdateService.IntegrationTests
 
             // Faz a requisição para atualizar o contato
             var content = new StringContent(JsonConvert.SerializeObject(endereco), Encoding.UTF8, "application/json");
-            var response = await _client.PutAsync("Endereco/UpdateEndereco", content);
+            var response = await _client.PutAsync("Update/Endereco/UpdateEndereco", content);
 
             var responseContent = await response.Content.ReadAsStringAsync();
 
@@ -49,7 +49,7 @@ namespace PolarisContacts.UpdateService.IntegrationTests
         {
             // ID do contato
             var enderecoId = 1;
-            var requestUri = $"Endereco/InativaEndereco/{enderecoId}";
+            var requestUri = $"Update/Endereco/InativaEndereco/{enderecoId}";
 
             // Envia a requisição
             var request = new HttpRequestMessage(HttpMethod.Put, requestUri);
