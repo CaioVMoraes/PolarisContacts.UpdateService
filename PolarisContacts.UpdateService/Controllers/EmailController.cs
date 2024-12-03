@@ -8,7 +8,7 @@ using PolarisContacts.UpdateService.Domain.Enuns;
 namespace PolarisContacts.UpdateService.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("Update/[controller]")]
     public class EmailController(ILogger<EmailController> logger, IEmailService emailService, IRabbitMqProducer rabbitMqProducer) : ControllerBase
     {
         private readonly ILogger<EmailController> _logger = logger;

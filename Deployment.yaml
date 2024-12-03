@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: polaris-updateservice
+  labels:
+    app: polaris-updateservice
+spec:
+  replicas: 1  # Apenas um pod será criado
+  selector:
+    matchLabels:
+      app: polaris-updateservice
+  template:
+    metadata:
+      labels:
+        app: polaris-updateservice
+    spec:
+      containers:
+        - name: updateservice
+          image: caiovsk/updateservice:latest  # Certifique-se de que a imagem está no Docker Hub
+          ports:
+            - containerPort: 8084  # Porta exposta no contêiner

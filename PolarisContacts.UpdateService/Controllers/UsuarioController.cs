@@ -8,7 +8,7 @@ using PolarisContacts.UpdateService.Domain.Enuns;
 namespace PolarisContacts.UpdateService.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("Update/[controller]")]
     public class UsuarioController(ILogger<UsuarioController> logger, IUsuarioService usuarioService, IRabbitMqProducer rabbitMqProducer) : ControllerBase
     {
         private readonly ILogger<UsuarioController> _logger = logger;
@@ -42,6 +42,12 @@ namespace PolarisContacts.UpdateService.Controllers
                 // Tratamento de erro
                 return StatusCode(500, $"Erro ao publicar mensagem: {ex.Message}");
             }
+        }
+
+        [HttpGet]
+        public string Get()
+        {
+            return "sucesso";
         }
     }
 }
