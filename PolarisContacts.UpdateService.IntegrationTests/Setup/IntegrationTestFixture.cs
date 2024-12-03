@@ -10,7 +10,7 @@ public class IntegrationTestFixture : WebApplicationFactory<Program>
     public IntegrationTestFixture()
     {
         // Configura o ambiente de teste
-        Environment.SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", "Test");
+        Environment.SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", "Development");
 
         // Configura o WebApplicationFactory e registra o banco de dados em memória
         Client = CreateClient(new WebApplicationFactoryClientOptions
