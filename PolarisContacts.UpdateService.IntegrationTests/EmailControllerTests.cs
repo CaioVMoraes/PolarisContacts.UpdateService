@@ -28,7 +28,7 @@ namespace PolarisContacts.UpdateService.IntegrationTests
 
             // Faz a requisição para atualizar o contato
             var content = new StringContent(JsonConvert.SerializeObject(email), Encoding.UTF8, "application/json");
-            var response = await _client.PutAsync("Email/UpdateEmail", content);
+            var response = await _client.PutAsync("Update/Email/UpdateEmail", content);
 
             var responseContent = await response.Content.ReadAsStringAsync();
 
@@ -43,7 +43,7 @@ namespace PolarisContacts.UpdateService.IntegrationTests
         {
             // ID do contato
             var emailId = 1;
-            var requestUri = $"Email/InativaEmail/{emailId}";
+            var requestUri = $"Update/Email/InativaEmail/{emailId}";
 
             // Envia a requisição
             var request = new HttpRequestMessage(HttpMethod.Put, requestUri);
